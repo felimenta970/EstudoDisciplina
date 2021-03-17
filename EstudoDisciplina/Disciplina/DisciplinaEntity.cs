@@ -13,11 +13,16 @@ namespace EstudoDisciplina.Entity {
 
         public List<Aluno> alunosMatriculados { get; set; }
 
-        public DateTime horario { get; set; }
+        public Professor Professor { get; set; }
+
+        public DateTime Horario { get; set; }
 
 
-        public Disciplina (string nomeDisciplina) {
+        public Disciplina (string nomeDisciplina, Professor professor, DateTime horario) {
+
             this.NomeDisciplina = nomeDisciplina;
+            this.Horario = horario;
+            this.Professor = professor;
         }
 
 
