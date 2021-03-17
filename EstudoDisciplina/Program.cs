@@ -9,9 +9,30 @@ namespace EstudoDisciplina {
     class Program {
         static void Main(string[] args) {
 
-            Disciplina disciplina = new Disciplina();
+            string nomeAluno;
+            string nomeProfessor;
+            string nomeDisciplina;
 
-            Aluno aluno = new Aluno();
+            int ID = 1;
+
+            List<Disciplina> listaDisciplinas = new List<Disciplina>();
+
+            Console.WriteLine("Seja bem vindo, vamos começar!");
+
+
+            bool controle1 = true;
+            bool controle2;
+
+            while (controle1) {
+
+                Console.WriteLine("Adicione uma disciplina:");
+                Console.WriteLine("Qual o nome?");
+                nomeDisciplina = Console.ReadLine();
+
+                Console.WriteLine("")
+            }
+
+
         }
     }
 }
