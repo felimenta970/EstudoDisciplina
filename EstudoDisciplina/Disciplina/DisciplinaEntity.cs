@@ -11,7 +11,7 @@ namespace EstudoDisciplina.Entity {
 
         public string NomeDisciplina { get; set; }
 
-        public List<AlunoMatriculado> alunosMatriculados { get; set; }
+        public List<Aluno> alunosMatriculados { get; set; }
 
         public DateTime horario { get; set; }
 
@@ -21,6 +21,26 @@ namespace EstudoDisciplina.Entity {
         }
 
 
+        public void AdicionaAluno(Aluno aluno) {
 
+            alunosMatriculados.Add(aluno);
+
+            return;
+        }
+
+        public void ListaAlunos() {
+
+            Console.WriteLine($"Alunos matriculados em {NomeDisciplina}: \n");
+            Console.WriteLine("---*---*---*---*---*---*---*---*---*---*");
+
+            foreach (Aluno aluno in alunosMatriculados) {
+
+                Console.WriteLine($"{aluno.ID}: {aluno.Nome}");
+            }
+
+            Console.WriteLine("\n---*---*---*---*---*---*---*---*---*---*");
+
+            return;
+        }
     }
 }
