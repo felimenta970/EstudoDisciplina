@@ -9,7 +9,7 @@ namespace EstudoDisciplina.Entity {
 
         public int ID { get; set; }
 
-        public string codigo { get; set; }
+        public string Codigo { get; set; }
 
         public string NomeDisciplina { get; set; }
 
@@ -22,7 +22,7 @@ namespace EstudoDisciplina.Entity {
 
         public Disciplina (int ID, string codigo, string nomeDisciplina, DateTime horario) {
 
-            this.codigo = codigo;
+            this.Codigo = codigo;
             this.ID = ID;
             this.NomeDisciplina = nomeDisciplina;
             this.Horario = horario;

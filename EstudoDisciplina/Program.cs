@@ -18,7 +18,7 @@ namespace EstudoDisciplina {
             string nomeDisciplina;
 
             int ID = 1;
-            string codigo;
+            string codigo = "";
 
             string format = "HH:mm";
             string dateString;
@@ -36,15 +36,32 @@ namespace EstudoDisciplina {
 
             bool controle1 = true;
             bool controle2 = true;
+            bool controle3 = true;
+
+            Console.WriteLine("Adicione uma disciplina:");
 
             while (controle1) {
 
-                Console.WriteLine("Adicione uma disciplina:");
+                
                 Console.WriteLine("Qual o nome?");
                 nomeDisciplina = Console.ReadLine();
 
-                Console.WriteLine("Qual o código?");
-                codigo = Console.ReadLine();
+                
+
+                while (controle3) {
+
+                    Console.WriteLine("Qual o código?");
+                    codigo = Console.ReadLine();
+
+                    if (!VerificaDisciplinaExistente(codigo, listaDisciplinas)) {
+                        controle3 = false;
+
+                    } else {
+
+                        Console.WriteLine("Disciplina com esse código já existente, entre com um novo código");
+                    }
+                }
+
 
 
                 Console.WriteLine("Qual o horário?");
@@ -52,6 +69,8 @@ namespace EstudoDisciplina {
                 horario = DateTime.ParseExact(dateString, format, cultureInfo);
 
                 disciplina = new Disciplina(ID, codigo, nomeDisciplina, horario);
+
+
                 ID++;
 
                 professor = CriaProfessor(ID);
@@ -61,7 +80,7 @@ namespace EstudoDisciplina {
 
                 while(controle2) {
 
-                    Console.WriteLine("Vamos adicionar alunos à essa disciplina! Dê enter para continuar, ou digite '0' para sair");
+                    Console.WriteLine("Vamos adicionar alunos à essa disciplina! Dê enter para continuar, ou digite '0' para parar de adicionar alunos");
 
                     if (Console.ReadLine() == "0") {
                         controle2 = false;
@@ -74,6 +93,8 @@ namespace EstudoDisciplina {
                     }
 
                 }
+
+                listaDisciplinas.Add(disciplina);
 
                 controle2 = true;
             }
@@ -129,13 +150,13 @@ namespace EstudoDisciplina {
 
         static public bool VerificaMatriculaDisciplina(int RA, Disciplina disciplina) {
 
-            bool estaMatriculado;
-
             // Verifica se na lista de alunos matriculados da disciplina, já existe um aluno com aquele RA
-            estaMatriculado = disciplina.alunosMatriculados.Any(p => p.RA == RA);
+            bool estaMatriculado = disciplina.alunosMatriculados.Any(p => p.RA == RA);
 
             return estaMatriculado;
         }
+
+
 
         static public bool VerificaDisciplinaExistente (string codigo, List<Disciplina> listaDisciplinas) {
 
