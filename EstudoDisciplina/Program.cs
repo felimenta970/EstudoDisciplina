@@ -11,6 +11,7 @@ namespace EstudoDisciplina {
 
         static void Main(string[] args) {
 
+            // Variável para auxilio na definição do recebimento de horário
             CultureInfo cultureInfo = CultureInfo.InvariantCulture;
 
             // Strings de nome
