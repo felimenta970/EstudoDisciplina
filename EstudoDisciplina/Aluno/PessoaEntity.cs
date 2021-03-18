@@ -18,9 +18,26 @@ namespace EstudoDisciplina.Entity {
             this.Nome = nome;
         }
 
+        // Adiciona a disciplina na lista de disciplinas da pessoa
         public void AdicionaDisciplina(Disciplina disciplina) {
 
             listaDisciplinas.Add(disciplina);
+
+            return;
+        }
+
+        // Lista as disciplinas que a pessoa faz parte
+        public void ListaDisciplinas() {
+
+            Console.WriteLine($"Disciplinas em que {Nome} está matriculado: \n");
+            Console.WriteLine("---*---*---*---*---*---*---*---*---*---*");
+
+            foreach (Disciplina disciplina in listaDisciplinas) {
+
+                Console.WriteLine($"{disciplina.ID}: {disciplina.NomeDisciplina}");
+            }
+
+            Console.WriteLine("\n---*---*---*---*---*---*---*---*---*---*");
 
             return;
         }
@@ -36,21 +53,7 @@ namespace EstudoDisciplina.Entity {
             this.RA = RA;
 
         }
-
-        public void ListaDisciplinas() {
-
-            Console.WriteLine($"Disciplinas em que {Nome} está matriculado: \n");
-            Console.WriteLine("---*---*---*---*---*---*---*---*---*---*");
-
-            foreach (Disciplina disciplina in listaDisciplinas) {
-
-                Console.WriteLine($"{disciplina.ID}: {disciplina.NomeDisciplina}");
-            }
-
-            Console.WriteLine("\n---*---*---*---*---*---*---*---*---*---*");
-
-            return;
-        }
+        
     }
 
     class Professor : Pessoa {

@@ -29,7 +29,7 @@ namespace EstudoDisciplina.Entity {
             this.Horario = horario;
         }
 
-
+        // Adiciona o aluno na lista de alunos matriculados
         public void AdicionaAluno(Aluno aluno) {
 
             alunosMatriculados.Add(aluno);
@@ -37,6 +37,8 @@ namespace EstudoDisciplina.Entity {
             return;
         }
 
+
+        // Lista todos os alunos matriculados na disciplina
         public void ListaAlunos() {
 
             Console.WriteLine($"Alunos matriculados em {NomeDisciplina}: \n");
