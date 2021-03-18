@@ -13,7 +13,8 @@ namespace EstudoDisciplina.Entity {
 
         public List<Disciplina> listaDisciplinas { get; set; }
 
-        public Pessoa(string nome) {
+        public Pessoa(int ID, string nome) {
+            this.ID = ID;
             this.Nome = nome;
         }
 
@@ -30,7 +31,7 @@ namespace EstudoDisciplina.Entity {
 
         public int RA { get; set; }
 
-        public Aluno(string nome, int RA) : base(nome) {
+        public Aluno(int ID, string nome, int RA) : base(ID, nome) {
 
             this.RA = RA;
 
@@ -56,7 +57,7 @@ namespace EstudoDisciplina.Entity {
         public int RG { get; set; }
 
 
-        public Professor(string nome, int RG) : base (nome) {
+        public Professor(int ID, string nome, int RG) : base (ID, nome) {
 
             this.RG = RG;
         }
