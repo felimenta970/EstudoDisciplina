@@ -8,6 +8,7 @@ using System.Globalization;
 
 namespace EstudoDisciplina {
     class Program {
+
         static void Main(string[] args) {
 
             CultureInfo cultureInfo = CultureInfo.InvariantCulture;
@@ -17,6 +18,7 @@ namespace EstudoDisciplina {
             string nomeDisciplina;
 
             int ID = 1;
+            string codigo;
 
             string format = "HH:mm";
             string dateString;
@@ -33,7 +35,7 @@ namespace EstudoDisciplina {
 
 
             bool controle1 = true;
-            bool controle2;
+            bool controle2 = true;
 
             while (controle1) {
 
@@ -41,16 +43,41 @@ namespace EstudoDisciplina {
                 Console.WriteLine("Qual o nome?");
                 nomeDisciplina = Console.ReadLine();
 
+                Console.WriteLine("Qual o código?");
+                codigo = Console.ReadLine();
+
+
                 Console.WriteLine("Qual o horário?");
                 dateString = Console.ReadLine();
                 horario = DateTime.ParseExact(dateString, format, cultureInfo);
 
-                disciplina = new Disciplina(nomeDisciplina, horario);
+                disciplina = new Disciplina(ID, codigo, nomeDisciplina, horario);
+                ID++;
 
                 professor = CriaProfessor(ID);
+                ID++;
 
                 disciplina.Professor = professor;
+
+                while(controle2) {
+
+                    Console.WriteLine("Vamos adicionar alunos à essa disciplina! Dê enter para continuar, ou digite '0' para sair");
+
+                    if (Console.ReadLine() == "0") {
+                        controle2 = false;
+                        
+                    } else {
+                        aluno = AdicionaAluno(ID, disciplina);
+                        ID++;
+
+                        disciplina.AdicionaAluno(aluno);
+                    }
+
+                }
+
+                controle2 = true;
             }
+
 
 
         }
@@ -68,9 +95,54 @@ namespace EstudoDisciplina {
 
             Professor professor = new Professor(ID, nomeProfessor, RG);
 
-            ID++;
-
             return professor;
+        }
+
+        static public Aluno AdicionaAluno(int ID, Disciplina disciplina) {
+
+            string nomeAluno;
+            int RA;
+            bool control = true;
+
+            Aluno aluno = null;
+
+            Console.WriteLine("Qual o nome do aluno?");
+            nomeAluno = Console.ReadLine();
+
+            while (control) {
+
+                Console.WriteLine("Qual o RA?");
+                Int32.TryParse(Console.ReadLine(), out RA);
+
+                if (!VerificaMatriculaDisciplina(RA, disciplina)) {
+                    aluno = new Aluno(ID, nomeAluno, RA);
+                    control = false;
+
+                } else {
+                    Console.WriteLine("RA já matriculado, digite um novo RA");
+
+                }
+            }            
+
+            return aluno;
+        }
+
+        static public bool VerificaMatriculaDisciplina(int RA, Disciplina disciplina) {
+
+            bool estaMatriculado;
+
+            // Verifica se na lista de alunos matriculados da disciplina, já existe um aluno com aquele RA
+            estaMatriculado = disciplina.alunosMatriculados.Any(p => p.RA == RA);
+
+            return estaMatriculado;
+        }
+
+        static public bool VerificaDisciplinaExistente (string codigo, List<Disciplina> listaDisciplinas) {
+
+
+            bool disciplinaExiste = listaDisciplinas.Any(p => p.codigo == codigo);
+
+            return disciplinaExiste;
         }
     }
 }
