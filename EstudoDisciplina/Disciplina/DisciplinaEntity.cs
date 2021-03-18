@@ -22,6 +22,7 @@ namespace EstudoDisciplina.Entity {
 
         public Disciplina (int ID, string codigo, string nomeDisciplina, DateTime horario) {
 
+            alunosMatriculados = new List<Aluno>();
             this.Codigo = codigo;
             this.ID = ID;
             this.NomeDisciplina = nomeDisciplina;

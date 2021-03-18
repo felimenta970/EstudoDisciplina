@@ -1,0 +1,7 @@
+C:\Users\felipe.pimenta\Documents\GitHub\EstudoDisciplina\EstudoDisciplina\EstudoDisciplina\bin\Debug\EstudoDisciplina.exe.config
+C:\Users\felipe.pimenta\Documents\GitHub\EstudoDisciplina\EstudoDisciplina\EstudoDisciplina\bin\Debug\EstudoDisciplina.exe
+C:\Users\felipe.pimenta\Documents\GitHub\EstudoDisciplina\EstudoDisciplina\EstudoDisciplina\bin\Debug\EstudoDisciplina.pdb
+C:\Users\felipe.pimenta\Documents\GitHub\EstudoDisciplina\EstudoDisciplina\EstudoDisciplina\obj\Debug\EstudoDisciplina.csprojAssemblyReference.cache
+C:\Users\felipe.pimenta\Documents\GitHub\EstudoDisciplina\EstudoDisciplina\EstudoDisciplina\obj\Debug\EstudoDisciplina.csproj.CoreCompileInputs.cache
+C:\Users\felipe.pimenta\Documents\GitHub\EstudoDisciplina\EstudoDisciplina\EstudoDisciplina\obj\Debug\EstudoDisciplina.exe
+C:\Users\felipe.pimenta\Documents\GitHub\EstudoDisciplina\EstudoDisciplina\EstudoDisciplina\obj\Debug\EstudoDisciplina.pdb

@@ -151,17 +151,15 @@ namespace EstudoDisciplina {
         static public bool VerificaMatriculaDisciplina(int RA, Disciplina disciplina) {
 
             // Verifica se na lista de alunos matriculados da disciplina, já existe um aluno com aquele RA
-            bool estaMatriculado = disciplina.alunosMatriculados.Any(p => p.RA == RA);
+            bool estaMatriculado = disciplina.alunosMatriculados.Exists(p => p.RA == RA);
 
             return estaMatriculado;
         }
 
-
-
         static public bool VerificaDisciplinaExistente (string codigo, List<Disciplina> listaDisciplinas) {
 
-
-            bool disciplinaExiste = listaDisciplinas.Any(p => p.codigo == codigo);
+            // Verifica se uma disciplinacom o mesmo código existe
+            bool disciplinaExiste = listaDisciplinas.Exists(p => p.Codigo == codigo);
 
             return disciplinaExiste;
         }
