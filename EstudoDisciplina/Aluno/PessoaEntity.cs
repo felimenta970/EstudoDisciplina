@@ -13,6 +13,7 @@ namespace EstudoDisciplina.Entity {
 
         public List<Disciplina> listaDisciplinas { get; set; }
 
+        // Construtor
         public Pessoa(int ID, string nome) {
             this.ID = ID;
             this.Nome = nome;
@@ -48,6 +49,7 @@ namespace EstudoDisciplina.Entity {
 
         public int RA { get; set; }
 
+        // Construtor
         public Aluno(int ID, string nome, int RA) : base(ID, nome) {
 
             this.RA = RA;
@@ -59,7 +61,7 @@ namespace EstudoDisciplina.Entity {
     class Professor : Pessoa {
         public int RG { get; set; }
 
-
+        // Construtor
         public Professor(int ID, string nome, int RG) : base (ID, nome) {
 
             this.RG = RG;
