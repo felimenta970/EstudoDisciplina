@@ -10,6 +10,8 @@ namespace EstudoDisciplina {
     class Program {
 
         static void Main(string[] args) {
+            
+            // Adicionado comentário para testes
 
             // Variável para auxilio na definição do recebimento de horário
             CultureInfo cultureInfo = CultureInfo.InvariantCulture;
